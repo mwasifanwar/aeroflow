@@ -1,0 +1,31 @@
+geometry:
+  airfoil_points: 200
+  chord_length: 1.0
+  naca_digits: 4
+  parameter_dim: 10
+
+cfd:
+  reynolds_number: 1e6
+  mach_number: 0.15
+  alpha_range: [-5, 15]
+  mesh_resolution: [100, 50]
+  convergence_tolerance: 1e-6
+  max_iterations: 1000
+
+neural_networks:
+  surrogate_hidden_layers: [128, 256, 128]
+  physics_informed_layers: [64, 128, 64]
+  learning_rate: 0.001
+  batch_size: 32
+  epochs: 1000
+
+optimization:
+  population_size: 50
+  generations: 100
+  mutation_rate: 0.1
+  crossover_rate: 0.8
+  objectives: ["drag", "lift"]
+
+api:
+  host: "0.0.0.0"
+  port: 8000
